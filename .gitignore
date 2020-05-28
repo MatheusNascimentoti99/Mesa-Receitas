@@ -1,3 +1,4 @@
 .vscode
-node_modules
+./mreceitas/node_modules
+./mreceitas/server
 package-lock.json
