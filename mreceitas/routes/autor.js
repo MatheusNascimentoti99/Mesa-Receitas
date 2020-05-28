@@ -3,7 +3,7 @@ var router = express.Router();
 var Autor = require('../model/Autor');
 const autor = new Autor();
 /* GET users listing. */
-router.get('/:id', function(req, res, next) {
+router.get('/:nickname', function(req, res, next) {
   autor.get(req.params, res);
 });
 
