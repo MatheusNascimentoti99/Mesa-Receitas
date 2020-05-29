@@ -3,7 +3,7 @@ var Receita = require('../model/Receita')
 var router = express.Router();
 const receita = new Receita();
 /* GET users listing. */
-router.get('/:titulo', function(req, res, next) {
+router.get('/:titulo', function (req, res, next) {
   receita.get(req.params, res);
 });
 
@@ -13,9 +13,11 @@ router.get('/', (req, res, next) => {
 
 //Exemplo of JSON's body
 // {
-// 	"nickname": "zoro",
-// 	"nome": "Adoilson Freitas",
-// 	"nascimento": "05/05/2000"
+// 	"titulo": "Ovo frito",
+//   "imagem": "",
+//   "id_autor": null,
+//   "tempo": 2,
+//   "unidadeMedida": "minutos"
 // }
 router.post('/insert', (req, res, next) => {
   receita.insert(req.body, res);
