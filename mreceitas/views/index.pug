@@ -2,4 +2,12 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
+  a(href="http://localhost:3000/receita/Ovo frito", target="_blank", rel="noopener noreferrer") = Pegar uma receita<br/>
+  a(href="http://localhost:3000/receita/", target="_blank", rel="noopener noreferrer") = Pegar todas receitas<br/>
+  a(href="http://localhost:3000/autor/", target="_blank", rel="noopener noreferrer") = Pegar todos autores<br/>
+  a(href="http://localhost:3000/modoPreparo/receita/Ovo frito", target="_blank", rel="noopener noreferrer") = Pegar modos de preparo de uma receitas<br/>
+  a(href="http://localhost:3000/modoPreparo/receita/Ovo frito/numero/1", target="_blank", rel="noopener noreferrer") = Pegar passos para o modo de preparo de uma receitas<br/>
+  a(href="http://localhost:3000/ingrediente/Ovo frito", target="_blank", rel="noopener noreferrer") = Pegar ingredientes de uma receita<br/>
+  a(href="http://localhost:3000/ingrediente/receita/Ovo frito/ingrediente/Ovo", target="_blank", rel="noopener noreferrer") = Pegar composição de ingrediente da receita<br/>
+
+  p Project #{title}
