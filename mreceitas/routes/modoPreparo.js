@@ -56,27 +56,21 @@ router.get('/receita/:id_receita', (req, res, next) => {
 
 //Exemplo of JSON's body
 // {
-// 	"nickname": "zoro",
-// 	"nome": "Adoilson Freitas",
-// 	"nascimento": "05/05/2000"
+// 	"id_receita": "Ovo frito",
+// 	"nome": "Fazer prato",
+// 	"descricao": "hora de comer"
 // }
 router.post('/insert', (req, res, next) => {
   modoPreparo.insert(req.body, res);
 });
 
-// router.delete('/delete/:nickname', (req, res, next) => {
-//   modoPreparo.delete(req.params, res);
-// });
+router.delete('/delete/:numero/receita/:id_receita', (req, res, next) => {
+  modoPreparo.delete(req.params, res);
+});
 
-// //Exemplo of JSON's body
-// // {
-// //  "oldNickname": "zoro",
-// // 	"nickname": "zoro",
-// // 	"nome": "Adoilson Freitas",
-// // 	"nascimento": "05/05/2000"
-// // }
-// router.put('/update', (req, res, next) => {
-//   modoPreparo.update(req.body, res);
-// });
+
+router.put('/update', (req, res, next) => {
+  modoPreparo.update(req.body, res);
+});
 
 module.exports = router;
