@@ -9,7 +9,7 @@ module.exports = class ModoPreparo {
         let values = [id_receita, numero];
         let sqlQry = `SELECT modoPreparo.*, 
             passo.numero as numeroPasso, passo.texto 
-            FROM modoPreparo join passo on modoPreparo.numero = passo.id_modo
+            FROM modoPreparo left join passo on modoPreparo.numero = passo.id_modo
               where modoPreparo.id_receita = ? and modoPreparo.numero = ?`
         var connection = dataBase.conectBD();
         connection.query(sqlQry, values, function (error, results, fields) {
@@ -36,7 +36,6 @@ module.exports = class ModoPreparo {
                     results = object
 
                 }
-                console.log('aqui 2')
                 res.json({
                     code: 'ok',
                     results
@@ -68,64 +67,65 @@ module.exports = class ModoPreparo {
         });
     }
 
-    // insert(object, res) {
-    //     let sqlQry = `INSERT INTO modoPreparo (nickname, nome, nascimento) values `;
-    //     sqlQry += `('${object.nickname}', '${object.nome}', '${object.nascimento}')`
+    insert(object, res) {
+        let {id_receita, nome, descricao} = object;
+        let sqlQry = `INSERT INTO modoPreparo (id_receita, nome, descricao) values (?, ?, ?)`;
+        let values = [id_receita, nome, descricao];
+        var connection = dataBase.conectBD();
+        connection.query(sqlQry, values, function (error, results, fields) {
+            if (error) {
+                res.json(error);
+            }
+            else {
+                res. json({
+                    code: 'ok',
+                    results
+                });
+            }
+            connection.end();
+            console.log('executou!');
+        });
+    }
 
-    //     var connection = dataBase.conectBD();
-    //     connection.query(sqlQry, function (error, results, fields) {
-    //         if (error) {
-    //             res.json(error);
-    //         }
-    //         else {
-    //             res. json({
-    //                 code: 'ok',
-    //                 results
-    //             });
-    //         }
-    //         connection.end();
-    //         console.log('executou!');
-    //     });
-    // }
+    delete(params, res) {
+        let {numero, id_receita} = params
+        let sqlQry = `DELETE FROM modoPreparo where numero = ? and id_receita = ?`;
+        let values = [numero, id_receita];
+        console.log(sqlQry);
+        var connection = dataBase.conectBD();
+        connection.query(sqlQry, values, function (error, results, fields) {
+            if (error) {
+                res.json(error);
+            }
+            else {
+                res. json({
+                    code: 'ok',
+                    results
+                });
+            }
+            connection.end();
+            console.log('executou!');
+        });
+    }
 
-    // delete(param, res) {
-    //     let sqlQry = `DELETE FROM modoPreparo where nickname = '${param.nickname}'`;
-    //     console.log(sqlQry);
-    //     var connection = dataBase.conectBD();
-    //     connection.query(sqlQry, function (error, results, fields) {
-    //         if (error) {
-    //             res.json(error);
-    //         }
-    //         else {
-    //             res. json({
-    //                 code: 'ok',
-    //                 results
-    //             });
-    //         }
-    //         connection.end();
-    //         console.log('executou!');
-    //     });
-    // }
-
-    // update(object, res){
-    //     var {nome, nickname, nascimento} = object
-    //     let sqlQry = `UPDATE modoPreparo set nome = ?, nickname = ?, nascimento = ? where nickname = '${object.oldNickname}'`;
-    //     console.log(sqlQry);
-    //     let values = [];
-    //     values.push(nome, nickname, nascimento);
-    //     var connection = dataBase.conectBD();
-    //     connection.query(sqlQry,values, function (error, results, fields) {
-    //         if (error) {
-    //             res.json(error);
-    //         }
-    //         else {
-    //             res. json({
-    //                 code: 'ok',
-    //                 results
-    //             });
-    //         }
-    //         connection.end();
-    //         console.log('executou!');
-    //     });
-    // }
+    update(object, res){
+        var {nome, descricao, oldNome, id_receita} = object
+        let sqlQry = `UPDATE modoPreparo set nome = ?, descricao = ? where nome = ? and id_receita = ?`;
+        console.log(sqlQry);
+        let values = [nome, descricao, oldNome, id_receita];
+        var connection = dataBase.conectBD();
+        connection.query(sqlQry,values, function (error, results, fields) {
+            if (error) {
+                res.json(error);
+            }
+            else {
+                res. json({
+                    code: 'ok',
+                    results
+                });
+            }
+            connection.end();
+            console.log('executou!');
+        });
+    }
 }
