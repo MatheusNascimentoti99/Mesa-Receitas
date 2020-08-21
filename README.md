@@ -11,11 +11,12 @@
 ###setup.sql: script completo para a criação do Banco de Dados MySQL
 
 ## Abrir e executar API
-$ git clone https://github.com/MatheusNascimentoti99/Mesa-Receitas.git
-$ cd Mesa-Receitas
-$ yarn install
-$ yarn start
-
+`` 
+ git clone https://github.com/MatheusNascimentoti99/Mesa-Receitas.git
+ cd Mesa-Receitas
+ yarn install
+ yarn start
+``
 ## Dados da API
 [Código de rotas aqui](mreceitas/routes/)
 ### Contém CRUD para Autor, Receita, Ingrediente, Modo de Preparo, Passos
