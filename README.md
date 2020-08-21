@@ -12,10 +12,10 @@
 
 ## Abrir e executar API
 `` 
- git clone https://github.com/MatheusNascimentoti99/Mesa-Receitas.git
- cd Mesa-Receitas
- yarn install
- yarn start
+ git clone https://github.com/MatheusNascimentoti99/Mesa-Receitas.git;
+ cd Mesa-Receitas;
+ yarn install;
+ yarn start;
 ``
 ## Dados da API
 [Código de rotas aqui](mreceitas/routes/)
@@ -23,7 +23,7 @@
 
 ### Mapeamento:
 ``` 
-Receita (titulo, imagem, tempo, ID_autor,)
+Receita (titulo, imagem, tempo, ID_autor)
 	D(titulo) = varchar(50)
 D(imagem) = varchar(100)
 D(tempo) = time
