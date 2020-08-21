@@ -2,8 +2,24 @@
 ## Projeto desenvolvido com Node + React + MySQL. 
 /mreceitas: contém a API desenvolvida em NodeJS
 
+
 ## Banco de Dados MySQL
-setup.sql: script completo para a criação do Banco de Dados MySQL
+1 - Crie um banco de dado local MySQL;
+2 - Execute o script setup.sql;
+3 - No diretório "Mesa-Receitas/mreceitas/server/database.js" substitua o password e database para a instancia que você criou no passo 1
+
+###setup.sql: script completo para a criação do Banco de Dados MySQL
+
+## Abrir e executar API
+$ git clone https://github.com/MatheusNascimentoti99/Mesa-Receitas.git
+$ cd Mesa-Receitas
+$ yarn install
+$ yarn start
+
+## Dados da API
+[Código de rotas aqui](mreceitas/routes/)
+### Contém CRUD para Autor, Receita, Ingrediente, Modo de Preparo, Passos
+
 ### Mapeamento:
 ``` 
 Receita (titulo, imagem, tempo, ID_autor,)
